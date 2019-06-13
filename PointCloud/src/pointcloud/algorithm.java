@@ -73,7 +73,7 @@ public class algorithm {
         return minmax;
     }
 
-    //nalezení Originu, potřebné poka
+    //nalezení Originu
     public static Point3D origin(int[] args, ArrayList<Point3D> array) {
         Point3D origin = new Point3D(0, 0, 0);
 //        Point3D xmin = array.get(args[0]);
@@ -154,6 +154,7 @@ public class algorithm {
         return sorted_list;
     }
     //rekurzivní volání pomocí nového pole
+    //v GUI spouštěna metoda douglas2
     public static void douglas(ArrayList<Point3D> array, Point3D origin, double epsilon) {
         if (epsilon == 0) {
             gen_array = array;
@@ -192,7 +193,7 @@ public class algorithm {
                 mid_position = i;
             }
         }
-        //musim nejak celkove opravit, protože mi to zvysuje pocet bodu, problem s mid pointem
+        //duplicitně přidával body, zatím testována metoda douglas2
         if (mid_position == -1) {
 
             if (first == last) {
@@ -302,7 +303,7 @@ public class algorithm {
         douglas2(mid_position, eid, right_origin, epsilon);       
     }
     // minmax, na vstupu pozice začátku, pozice konce a pole
-    //vstupuje již setřízené pole bodů
+    //vstupuje již setříděné pole bodů
     public static int[] minmax_sorted(int start, int end,ArrayList<Point3D> array) {
         int[] minmax = new int[6];
         int a = start;
